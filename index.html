@@ -6,402 +6,767 @@
 <title>Amigo Secreto · La Familia</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
 
 :root{
-  --bg:#0d0d10;
-  --panel:#17171c;
-  --panel2:#1e1e25;
-  --text:#f7f3ed;
-  --muted:#a7a4aa;
-  --line:rgba(255,255,255,.10);
-  --gold:#d8b477;
-  --gold-soft:#f0d39b;
-  --wine:#9f5365;
+  --pink:#ff6f91;
+  --pink2:#ff9fba;
+  --yellow:#ffd166;
+  --mint:#7bdcb5;
+  --blue:#6ecbff;
+  --purple:#9b8cff;
+  --cream:#fff9ef;
+  --ink:#35263b;
+  --muted:#756878;
+  --card:#ffffff;
+  --shadow:0 22px 60px rgba(73,45,74,.18);
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
   margin:0;
   min-height:100vh;
-  background:
-    radial-gradient(circle at 85% 5%,rgba(216,180,119,.12),transparent 24rem),
-    radial-gradient(circle at 0% 65%,rgba(159,83,101,.12),transparent 28rem),
-    var(--bg);
-  color:var(--text);
-  font-family:Manrope,system-ui,sans-serif;
+  color:var(--ink);
+  font-family:"Fredoka",system-ui,sans-serif;
   overflow-x:hidden;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,209,102,.35),transparent 19rem),
+    radial-gradient(circle at 92% 16%,rgba(110,203,255,.30),transparent 20rem),
+    radial-gradient(circle at 12% 85%,rgba(123,220,181,.28),transparent 22rem),
+    radial-gradient(circle at 88% 82%,rgba(255,111,145,.24),transparent 22rem),
+    #fff8ef;
 }
+
 body:before{
   content:"";
-  position:fixed; inset:0; pointer-events:none; opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.45;
+  background-image:
+    radial-gradient(#ff6f91 1.2px,transparent 1.2px),
+    radial-gradient(#6ecbff 1px,transparent 1px);
+  background-size:38px 38px,52px 52px;
+  background-position:0 0,17px 20px;
 }
-.wrap{width:min(1120px,92%);margin:auto;padding:30px 0 60px}
+
+body:after{
+  content:"🎁   ✨   🎀   ⭐   💖   🎁   ✨   🎀";
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
+  color:rgba(255,111,145,.12);
+  font-size:32px;
+  letter-spacing:28px;
+  white-space:nowrap;
+  overflow:hidden;
+  pointer-events:none;
+  transform:rotate(-3deg) translateY(-8px);
+}
+
+.wrap{
+  width:min(1120px,92%);
+  margin:auto;
+  padding:28px 0 55px;
+}
 
 /* HERO */
 .hero{
-  min-height:520px;
+  min-height:525px;
   position:relative;
   overflow:hidden;
-  border-radius:30px;
-  background:#222;
-  box-shadow:0 30px 90px rgba(0,0,0,.45);
-  border:1px solid var(--line);
+  border-radius:38px;
+  background:#ffcad8;
+  box-shadow:0 28px 75px rgba(73,45,74,.22);
+  border:7px solid #fff;
 }
+
 .hero img{
-  width:100%;height:100%;position:absolute;inset:0;
-  object-fit:cover;object-position:center;
-  filter:saturate(.9) contrast(1.03);
+  width:100%;
+  height:100%;
+  position:absolute;
+  inset:0;
+  object-fit:cover;
+  object-position:center;
+  filter:saturate(1.08) contrast(1.02);
 }
+
 .hero:after{
-  content:"";position:absolute;inset:0;
+  content:"";
+  position:absolute;
+  inset:0;
   background:
-    linear-gradient(90deg,rgba(7,7,9,.93) 0%,rgba(7,7,9,.68) 42%,rgba(7,7,9,.15) 72%,rgba(7,7,9,.28) 100%),
-    linear-gradient(0deg,rgba(7,7,9,.5),transparent 45%);
+    linear-gradient(90deg,rgba(255,248,239,.96) 0%,rgba(255,248,239,.84) 38%,rgba(255,248,239,.18) 74%,rgba(255,248,239,.08) 100%),
+    linear-gradient(0deg,rgba(53,38,59,.20),transparent 45%);
 }
+
+.hero:before{
+  content:"✨";
+  position:absolute;
+  z-index:3;
+  right:38px;
+  top:25px;
+  font-size:52px;
+  transform:rotate(12deg);
+  animation:wobble 3s ease-in-out infinite;
+}
+
+@keyframes wobble{
+  0%,100%{transform:rotate(10deg) translateY(0)}
+  50%{transform:rotate(-4deg) translateY(-7px)}
+}
+
 .hero-content{
-  position:relative;z-index:2;
-  width:min(610px,90%);
-  padding:70px 58px;
+  position:relative;
+  z-index:4;
+  width:min(620px,90%);
+  padding:68px 58px;
 }
+
 .badge{
-  display:inline-flex;align-items:center;gap:9px;
-  border:1px solid rgba(216,180,119,.35);
-  background:rgba(18,18,22,.48);
-  backdrop-filter:blur(12px);
-  color:var(--gold-soft);
-  padding:9px 14px;border-radius:100px;
-  text-transform:uppercase;letter-spacing:.16em;
-  font-size:10px;font-weight:800;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:2px solid rgba(255,111,145,.30);
+  background:rgba(255,255,255,.76);
+  color:#e34e73;
+  padding:10px 15px;
+  border-radius:100px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:10px;
+  font-weight:800;
+  box-shadow:0 8px 25px rgba(73,45,74,.08);
 }
-.badge i{width:6px;height:6px;background:var(--gold);border-radius:50%;display:block}
+
+.badge i{
+  width:9px;
+  height:9px;
+  background:var(--pink);
+  border-radius:50%;
+  display:block;
+  box-shadow:0 0 0 4px rgba(255,111,145,.13);
+}
+
 .hero h1{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(54px,7vw,88px);
-  line-height:.93;letter-spacing:-.04em;
+  font-family:"Baloo 2",sans-serif;
+  font-size:clamp(60px,8vw,96px);
+  line-height:.84;
+  letter-spacing:-.045em;
   margin:22px 0 20px;
+  color:#38283d;
+  text-shadow:4px 5px 0 rgba(255,209,102,.42);
 }
-.hero h1 em{font-weight:600;color:var(--gold-soft)}
+
+.hero h1 em{
+  font-style:normal;
+  color:#ed587b;
+}
+
 .hero p{
-  margin:0;color:#d0ccd0;font-size:16px;
-  line-height:1.7;max-width:500px;
+  margin:0;
+  color:#594b5d;
+  font-size:17px;
+  line-height:1.65;
+  max-width:510px;
+  font-weight:500;
 }
+
 .hero-bottom{
-  position:absolute;z-index:2;bottom:26px;left:30px;right:30px;
-  display:flex;justify-content:space-between;align-items:center;
-  color:rgba(255,255,255,.72);font-size:12px;
+  position:absolute;
+  z-index:4;
+  bottom:25px;
+  left:30px;
+  right:30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#68596c;
+  font-size:12px;
+  font-weight:600;
 }
-.hero-bottom span:last-child{color:var(--gold-soft)}
+
+.hero-bottom span:last-child{
+  background:#fff;
+  color:#e34e73;
+  padding:9px 13px;
+  border-radius:99px;
+  box-shadow:0 8px 22px rgba(73,45,74,.10);
+}
 
 /* APP */
 .game-shell{
   width:min(900px,94%);
-  margin:-54px auto 0;
-  position:relative;z-index:5;
-  border:1px solid var(--line);
-  border-radius:26px;
-  background:rgba(23,23,28,.94);
-  backdrop-filter:blur(20px);
-  box-shadow:0 25px 80px rgba(0,0,0,.38);
+  margin:-55px auto 0;
+  position:relative;
+  z-index:5;
+  border:4px solid #fff;
+  border-radius:32px;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(18px);
+  box-shadow:var(--shadow);
   overflow:hidden;
 }
-.game-header{
-  padding:22px 30px;
-  border-bottom:1px solid var(--line);
-  display:flex;justify-content:space-between;align-items:center;
-}
-.game-brand{display:flex;align-items:center;gap:13px}
-.logo{
-  width:38px;height:38px;border-radius:12px;
-  display:grid;place-items:center;
-  background:linear-gradient(135deg,#e0c28c,#a77d42);
-  color:#19171a;font-size:18px;
-}
-.game-brand strong{font-size:14px;letter-spacing:-.01em}
-.game-brand small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
-.step-number{
-  font-size:11px;color:var(--muted);
-  font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-}
-.progress-wrap{padding:0 30px}
-.progress{height:2px;background:#2d2d35}
-.bar{height:100%;width:33.333%;background:linear-gradient(90deg,var(--gold),#f0d39b);transition:.45s ease}
 
-.content{padding:42px 46px 48px}
+.game-header{
+  padding:20px 28px;
+  background:linear-gradient(90deg,#fff,#fff7fb);
+  border-bottom:2px dashed rgba(255,111,145,.18);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.game-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo{
+  width:45px;
+  height:45px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,var(--yellow),#ffb347);
+  color:#674b21;
+  font-size:23px;
+  transform:rotate(-5deg);
+  box-shadow:4px 5px 0 rgba(255,111,145,.18);
+}
+
+.game-brand strong{
+  display:block;
+  font-size:15px;
+  font-weight:800;
+}
+
+.game-brand small{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:2px;
+}
+
+.step-number{
+  font-size:11px;
+  color:#e45d7d;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  background:#fff0f4;
+  padding:8px 11px;
+  border-radius:99px;
+}
+
+.progress-wrap{
+  padding:0 28px;
+  background:#fff;
+}
+
+.progress{
+  height:7px;
+  background:#f4e8ed;
+  border-radius:99px;
+  overflow:hidden;
+}
+
+.bar{
+  height:100%;
+  width:33.333%;
+  background:linear-gradient(90deg,var(--pink),var(--yellow),var(--mint));
+  border-radius:99px;
+  transition:.5s ease;
+}
+
+/* CONTENT */
+.content{padding:44px 46px 50px}
+
 .step{display:none}
-.step.active{display:block;animation:fade .45s cubic-bezier(.2,.8,.2,1)}
-@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.step.active{
+  display:block;
+  animation:popIn .5s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes popIn{
+  from{opacity:0;transform:translateY(14px) scale(.98)}
+  to{opacity:1;transform:none}
+}
 
 .kicker{
-  color:var(--gold);font-size:11px;text-transform:uppercase;
-  letter-spacing:.16em;font-weight:800;margin-bottom:12px;
+  width:max-content;
+  margin:0 auto 10px;
+  color:#e34e73;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.10em;
+  font-weight:800;
+  background:#fff0f4;
+  padding:8px 12px;
+  border-radius:99px;
 }
+
 h2{
   margin:0 0 10px;
-  font-family:"Playfair Display",serif;
-  font-size:42px;letter-spacing:-.03em;
+  text-align:center;
+  font-family:"Baloo 2",sans-serif;
+  font-size:45px;
+  line-height:1;
+  letter-spacing:-.025em;
+  color:#39283e;
 }
-.help{margin:0 0 30px;color:var(--muted);line-height:1.7;font-size:14px}
 
+.help{
+  margin:0 auto 30px;
+  max-width:650px;
+  text-align:center;
+  color:var(--muted);
+  line-height:1.7;
+  font-size:14px;
+  font-weight:500;
+}
+
+/* NAMES */
 .names{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
+  margin-top:22px;
 }
+
 .nameBtn{
-  appearance:none;
-  min-height:58px;
-  background:#202027;
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:14px;
-  color:#e9e5e1;
-  padding:13px 16px;
-  text-align:left;
-  font:600 14px Manrope,sans-serif;
+  position:relative;
+  overflow:hidden;
+  border:2px solid #f1e5eb;
+  border-radius:18px;
+  min-height:62px;
+  padding:14px;
+  background:linear-gradient(145deg,#fff,#fff8fb);
+  color:var(--ink);
+  font:700 15px "Fredoka",sans-serif;
   cursor:pointer;
-  transition:.2s ease;
+  transition:.22s ease;
+  box-shadow:0 7px 18px rgba(73,45,74,.06);
 }
+
 .nameBtn:before{
-  content:"";
-  display:inline-block;width:7px;height:7px;border-radius:50%;
-  background:#55545b;margin-right:10px;transition:.2s;
+  content:"🎀";
+  display:inline-block;
+  margin-right:7px;
+  transform:scale(.85);
 }
+
 .nameBtn:hover{
-  transform:translateY(-2px);
-  background:#292930;
-  border-color:rgba(216,180,119,.45);
+  transform:translateY(-4px) rotate(-1deg);
+  border-color:#ff9ab2;
+  box-shadow:0 14px 25px rgba(255,111,145,.15);
 }
-.nameBtn:hover:before{background:var(--gold)}
+
+.nameBtn:nth-child(3n+1):hover{background:#fff3f6}
+.nameBtn:nth-child(3n+2):hover{background:#f0fbff}
+.nameBtn:nth-child(3n):hover{background:#f2fff8}
+
 .nameBtn.selected{
-  background:linear-gradient(135deg,#3c3028,#2c2724);
-  border-color:var(--gold);
   color:#fff;
-  box-shadow:0 8px 25px rgba(216,180,119,.12);
+  border-color:#ff5f86;
+  background:linear-gradient(135deg,#ff6f91,#ff91ab);
+  box-shadow:0 9px 25px rgba(255,111,145,.27);
+  transform:translateY(-3px) rotate(-1deg);
 }
-.nameBtn.selected:before{background:var(--gold)}
+
+.nameBtn.selected:before{content:"💖"}
+
 .nameBtn.used{
-  opacity:.30;
+  opacity:.35;
   cursor:not-allowed;
   text-decoration:line-through;
   filter:grayscale(1);
 }
-.actions{margin-top:24px;display:flex;justify-content:flex-end}
+
+.actions{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+}
+
 .primary{
-  border:0;border-radius:13px;
-  background:linear-gradient(135deg,#e2c28b,#b98b4d);
-  color:#171419;
-  padding:15px 23px;
-  font:800 13px Manrope,sans-serif;
+  border:0;
+  border-radius:17px;
+  background:linear-gradient(135deg,#ff6f91,#ff8baa);
+  color:#fff;
+  padding:16px 24px;
+  font:800 14px "Fredoka",sans-serif;
   letter-spacing:.01em;
   cursor:pointer;
-  transition:.2s;
-  box-shadow:0 10px 30px rgba(216,180,119,.16);
+  transition:.22s;
+  box-shadow:0 10px 25px rgba(255,111,145,.25);
 }
-.primary:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.05)}
-.primary:disabled{opacity:.35;cursor:not-allowed}
 
-/* CODE */
-.code-stage{
-  border:1px solid rgba(216,180,119,.20);
-  background:linear-gradient(135deg,rgba(216,180,119,.08),rgba(255,255,255,.02));
-  border-radius:22px;padding:34px;margin:25px 0;
-  text-align:center;
+.primary:hover:not(:disabled){
+  transform:translateY(-3px) scale(1.02);
+  filter:brightness(1.03);
+  box-shadow:0 15px 32px rgba(255,111,145,.32);
 }
-.code-caption{
-  color:var(--muted);font-size:11px;text-transform:uppercase;
-  letter-spacing:.15em;font-weight:800;margin-bottom:15px;
-}
-.codebox{
-  font-size:clamp(48px,8vw,72px);
-  letter-spacing:.22em;
-  font-weight:700;color:var(--gold-soft);
-  margin-left:.22em;
-}
-.note{
-  display:flex;gap:12px;align-items:flex-start;
-  padding:14px 16px;border-radius:14px;
-  background:#202027;border:1px solid rgba(255,255,255,.06);
-  color:var(--muted);font-size:13px;line-height:1.55;
-}
-.note b{color:#e8e2dc}
 
-/* REVEAL */
-.reveal{text-align:center;padding:25px 10px 10px}
-.secret-icon{
-  width:68px;height:68px;border-radius:50%;
-  display:grid;place-items:center;margin:0 auto 22px;
-  background:linear-gradient(135deg,#e2c28b,#9f7440);
-  color:#161318;font-size:28px;
-  box-shadow:0 15px 45px rgba(216,180,119,.18);
+.primary:disabled{
+  opacity:.35;
+  cursor:not-allowed;
 }
-.person{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(55px,9vw,88px);
-  line-height:1;color:var(--gold-soft);
-  letter-spacing:-.04em;
-  margin:15px 0 22px;
-}
-.reveal .small{
-  color:var(--muted);font-size:11px;
-  text-transform:uppercase;letter-spacing:.17em;font-weight:800;
-}
-.reveal p{color:var(--muted);line-height:1.7;font-size:14px}
 
-.footer{
-  text-align:center;color:#68666c;font-size:11px;
-  margin-top:24px;letter-spacing:.03em;
-}
-.toast{
-  position:fixed;z-index:20;left:50%;bottom:25px;
-  transform:translate(-50%,20px);
-  background:#f2eee8;color:#1a181a;padding:13px 18px;
-  border-radius:12px;font-weight:700;font-size:13px;
-  opacity:0;pointer-events:none;transition:.3s;
-  box-shadow:0 15px 45px rgba(0,0,0,.3);
-}
-.toast.show{opacity:1;transform:translate(-50%,0)}
-.confetti{position:fixed;top:-20px;width:7px;height:13px;z-index:20;animation:fall 3.4s linear forwards}
-@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
-
-
-/* --- Diseño renovado --- */
-:root{
-  --bg:#09090c;
-  --panel:#141419;
-  --panel2:#1d1d24;
-  --text:#fbf8f2;
-  --muted:#aaa6ae;
-  --line:rgba(255,255,255,.09);
-  --gold:#d9b36e;
-  --gold-soft:#f4d9a5;
-  --wine:#a85568;
-  --shadow:0 30px 90px rgba(0,0,0,.48);
-}
-body{
+/* CODE CARD */
+.code-login{
+  max-width:540px;
+  margin:20px auto 0;
+  padding:30px;
+  border:3px solid #ffe0e8;
+  border-radius:28px;
   background:
-    radial-gradient(900px 500px at 100% 0%,rgba(217,179,110,.13),transparent 60%),
-    radial-gradient(700px 500px at 0% 70%,rgba(168,85,104,.11),transparent 60%),
-    var(--bg);
-}
-.hero{
-  min-height:500px;
-  border-radius:34px;
-  box-shadow:var(--shadow);
-}
-.hero:after{
-  background:
-    linear-gradient(90deg,rgba(5,5,8,.96) 0%,rgba(5,5,8,.72) 43%,rgba(5,5,8,.18) 78%,rgba(5,5,8,.32) 100%),
-    linear-gradient(0deg,rgba(5,5,8,.62),transparent 55%);
-}
-.hero-content{padding:76px 62px}
-.badge{
-  box-shadow:0 10px 35px rgba(0,0,0,.2);
-}
-.hero h1{
-  text-wrap:balance;
-  text-shadow:0 8px 35px rgba(0,0,0,.35);
-}
-.game-shell{
-  border-radius:30px;
-  background:rgba(19,19,24,.92);
-  box-shadow:0 28px 90px rgba(0,0,0,.42);
-}
-.game-header{
-  padding:20px 30px;
-  background:linear-gradient(180deg,rgba(255,255,255,.025),transparent);
-}
-.logo{
-  width:42px;height:42px;border-radius:14px;
-  box-shadow:0 8px 25px rgba(217,179,110,.2);
-}
-.content{padding:46px 48px 52px}
-.names{gap:12px}
-.nameBtn{
-  position:relative;
-  min-height:64px;
-  background:linear-gradient(145deg,#202027,#19191f);
-  border-radius:16px;
-  box-shadow:inset 0 1px rgba(255,255,255,.025);
-}
-.nameBtn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(0,0,0,.2);
-}
-.nameBtn.selected{
-  background:linear-gradient(145deg,#44362a,#2a2521);
-  box-shadow:0 12px 35px rgba(217,179,110,.14), inset 0 1px rgba(255,255,255,.08);
-}
-.participant-count{
-  margin-top:14px;
-  color:#817d85;
-  font-size:11px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  text-align:right;
-}
-.primary{
-  border-radius:15px;
-  padding:16px 24px;
-  box-shadow:0 12px 32px rgba(217,179,110,.18);
-}
-.code-stage{
+    radial-gradient(circle at 10% 10%,rgba(255,209,102,.24),transparent 9rem),
+    radial-gradient(circle at 90% 90%,rgba(123,220,181,.22),transparent 10rem),
+    #fff;
+  box-shadow:0 18px 45px rgba(73,45,74,.12);
   position:relative;
   overflow:hidden;
-  padding:40px 30px;
-  box-shadow:inset 0 1px rgba(255,255,255,.05);
 }
-.code-stage:before{
-  content:"";
-  position:absolute; inset:-60px;
-  background:radial-gradient(circle,rgba(217,179,110,.12),transparent 58%);
-  pointer-events:none;
+
+.code-login:before{
+  content:"🎁";
+  position:absolute;
+  right:18px;
+  top:12px;
+  font-size:34px;
+  transform:rotate(12deg);
 }
-.codebox{position:relative;text-shadow:0 8px 30px rgba(217,179,110,.18)}
-.reveal{
-  padding:36px 10px 16px;
+
+.code-login-icon{
+  width:68px;
+  height:68px;
+  margin:0 auto 15px;
+  display:grid;
+  place-items:center;
+  border-radius:22px;
+  background:linear-gradient(135deg,var(--yellow),#ffb347);
+  font-size:29px;
+  box-shadow:5px 6px 0 rgba(255,111,145,.18);
+  transform:rotate(-4deg);
 }
-.secret-icon{
-  width:76px;height:76px;
-  box-shadow:0 18px 50px rgba(217,179,110,.2);
+
+.code-login-title{
+  text-align:center;
+  font-family:"Baloo 2",sans-serif;
+  font-size:32px;
+  line-height:1;
+  color:#39283e;
+  margin:0 0 8px;
 }
-.person{
-  text-shadow:0 12px 45px rgba(217,179,110,.12);
+
+.code-login-subtitle{
+  max-width:400px;
+  margin:0 auto 23px;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.65;
+  font-weight:500;
 }
+
+/* INPUT */
+.code-input-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+  padding:6px;
+  background:#fff8fb;
+  border:3px solid #f7dce5;
+  border-radius:19px;
+  transition:.25s ease;
+}
+
+.code-input-wrap:focus-within{
+  border-color:#ff7d9b;
+  box-shadow:0 0 0 5px rgba(255,111,145,.10);
+  transform:translateY(-2px);
+}
+
+.code-input-lock{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  color:#ed5b7d;
+  font-size:19px;
+  flex-shrink:0;
+}
+
+.code-input{
+  width:100%;
+  min-width:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#39283e;
+  font-family:"Fredoka",sans-serif;
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-align:center;
+  padding:13px 4px;
+  text-transform:uppercase;
+}
+
+.code-input::placeholder{
+  color:#c0b2ba;
+  font-size:11px;
+  letter-spacing:.08em;
+}
+
+.code-toggle{
+  width:44px;
+  height:44px;
+  flex-shrink:0;
+  border:0;
+  border-radius:13px;
+  background:#fff;
+  color:#a3949d;
+  cursor:pointer;
+  transition:.2s ease;
+  box-shadow:0 3px 10px rgba(73,45,74,.07);
+}
+
+.code-toggle:hover{
+  color:#e34e73;
+  transform:scale(1.05);
+}
+
+.code-error{
+  display:none;
+  margin-top:12px;
+  padding:12px 14px;
+  border-radius:14px;
+  background:#fff0f2;
+  border:2px solid #ffc4cf;
+  color:#b43f5b;
+  font-size:11px;
+  line-height:1.5;
+}
+
+.code-error.show{
+  display:flex;
+  gap:9px;
+  animation:shake .35s ease;
+}
+
+@keyframes shake{
+  20%{transform:translateX(-5px)}
+  40%{transform:translateX(5px)}
+  60%{transform:translateX(-3px)}
+  80%{transform:translateX(3px)}
+}
+
+.code-submit{
+  width:100%;
+  margin-top:15px;
+  padding:16px;
+  border:0;
+  border-radius:16px;
+  background:linear-gradient(135deg,#7bdcb5,#53c998);
+  color:#174b3a;
+  font-family:"Fredoka",sans-serif;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.22s ease;
+  box-shadow:0 9px 22px rgba(83,201,152,.20);
+}
+
+.code-submit:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.03);
+}
+
+.code-submit:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+  transform:none;
+}
+
+.code-security{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  margin-top:15px;
+  color:#9b8e98;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+
+.code-input-wrap.success{
+  border-color:#63c99c;
+  box-shadow:0 0 0 5px rgba(99,201,156,.10);
+}
+
+.code-login.success{
+  animation:successBounce .55s ease;
+}
+
+@keyframes successBounce{
+  0%{transform:scale(1)}
+  45%{transform:scale(1.025) rotate(-.4deg)}
+  100%{transform:scale(1)}
+}
+
+/* NOTE */
 .note{
-  background:rgba(255,255,255,.035);
+  display:flex;
+  gap:11px;
+  align-items:flex-start;
+  padding:14px 16px;
+  border-radius:16px;
+  background:#fffaf4;
+  border:2px dashed #f0dcae !important;
+  color:#796d73;
+  font-size:12px;
+  line-height:1.55;
 }
+
+.note b{color:#4a384e}
+
+/* REVEAL */
+.reveal{
+  text-align:center;
+  padding:28px 10px 15px;
+  position:relative;
+}
+
+.secret-icon{
+  width:88px;
+  height:88px;
+  border-radius:27px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 20px;
+  background:linear-gradient(135deg,var(--yellow),#ffad43);
+  color:#684d20;
+  font-size:36px;
+  box-shadow:7px 8px 0 rgba(255,111,145,.20);
+  animation:giftBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes giftBounce{
+  0%,100%{transform:translateY(0) rotate(-4deg)}
+  50%{transform:translateY(-8px) rotate(4deg)}
+}
+
+.reveal .small{
+  color:#e34e73;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-weight:800;
+}
+
+.person{
+  font-family:"Baloo 2",sans-serif;
+  font-size:clamp(55px,9vw,88px);
+  line-height:.95;
+  color:#e34e73;
+  letter-spacing:-.04em;
+  margin:14px 0 18px;
+  text-shadow:3px 4px 0 rgba(255,209,102,.45);
+}
+
+.reveal p{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:14px;
+  font-weight:500;
+}
+
+/* CONFETTI */
+.confetti{
+  position:fixed;
+  top:-25px;
+  width:9px;
+  height:15px;
+  border-radius:3px;
+  z-index:20;
+  animation:fall 3.5s linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:0;
+  }
+}
+
 .footer{
-  margin-top:26px;
-  color:#706d74;
+  text-align:center;
+  color:#887b85;
+  font-size:11px;
+  margin-top:24px;
+  letter-spacing:.04em;
+  font-weight:700;
 }
-@media(max-width:760px){
-  .hero{min-height:550px;border-radius:26px}
-  .hero-content{padding:52px 28px}
-  .game-shell{border-radius:24px}
-  .content{padding:34px 22px 38px}
-  .participant-count{text-align:left}
+
+.toast{
+  position:fixed;
+  z-index:30;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,20px);
+  background:#39283e;
+  color:#fff;
+  padding:13px 18px;
+  border-radius:15px;
+  font-weight:700;
+  font-size:12px;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  box-shadow:0 15px 45px rgba(73,45,74,.25);
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
 }
 
 @media(max-width:760px){
   .hero{min-height:570px}
-  .hero-content{padding:50px 28px}
+  .hero-content{padding:55px 28px}
+  .hero h1{font-size:62px}
   .hero-bottom{left:20px;right:20px}
-  .game-shell{width:100%;margin-top:-30px;border-radius:22px}
+  .game-shell{width:100%;margin-top:-30px;border-radius:25px}
   .game-header{padding:18px 20px}
   .progress-wrap{padding:0 20px}
-  .content{padding:32px 20px 35px}
+  .content{padding:32px 20px 38px}
   .names{grid-template-columns:repeat(2,1fr)}
-  h2{font-size:35px}
+  h2{font-size:38px}
 }
+
 @media(max-width:430px){
   .wrap{width:94%}
   .hero h1{font-size:53px}
+  .hero p{font-size:14px}
   .hero-bottom span:first-child{display:none}
-  .names{grid-template-columns:1fr}
+  .names{grid-template-columns:1fr 1fr;gap:9px}
+  .nameBtn{min-height:58px;padding:11px 7px;font-size:12px}
   .actions{display:block}
   .primary{width:100%}
+  .code-login{padding:25px 15px}
+  .code-input{font-size:15px;letter-spacing:.09em}
 }
+
 </style>
 </head>
 
@@ -427,7 +792,7 @@ body{
         <div class="logo">🎁</div>
         <div>
           <strong>Amigo Secreto</strong>
-          <small>Edición familiar · 2026</small>
+          <small>La familia</small>
         </div>
       </div>
       <div class="step-number" id="stepLabel">Paso 01 / 03</div>
@@ -442,10 +807,9 @@ body{
       <section class="step active" id="step1">
         <div class="kicker">Comencemos</div>
         <h2>¿Quién eres tú?</h2>
-        <p class="help">Elige tu nombre, descubre tu amigo secreto y guarda el misterio. Cada persona participa una sola vez.</p>
+        <p class="help">Selecciona tu nombre para continuar con el sorteo. Cada participación puede realizarse una sola vez.</p>
 
         <div class="names" id="names"></div>
-        <div class="participant-count" id="participantCount"></div>
 
         <div class="actions">
           <button class="primary" id="continue" disabled>Continuar con mi sorteo →</button>
@@ -453,26 +817,60 @@ body{
       </section>
 
       <section class="step" id="step2">
-        <div class="kicker">Tu participación</div>
-        <h2>Guarda este momento.</h2>
-        <p class="help">Tu código personal ha sido generado. Es solo tuyo.</p>
+        <div class="kicker">🔐 Zona secreta</div>
+        <h2>¡Hora del misterio!</h2>
+        <p class="help">Escribe tu código personal. Respira... tu amigo secreto está a punto de aparecer. 👀</p>
 
-        <div class="code-stage">
-          <div class="code-caption">Código secreto</div>
-          <div class="codebox" id="codebox">----</div>
-        </div>
+        <div class="code-login" id="codeLogin">
+          <div class="code-login-icon">🎁</div>
 
-        <div class="note">
-          <span>✦</span>
-          <div><b>Un pequeño secreto:</b> no necesitas compartir este código con nadie. Ahora prepárate para descubrir a quién te tocó.</div>
-        </div>
+          <h3 class="code-login-title">Abre tu regalito</h3>
 
-        <div class="actions">
-          <button class="primary" id="reveal">Descubrir mi amigo secreto ✦</button>
+          <p class="code-login-subtitle">
+            Tu código es personal. Escríbelo aquí y descubriremos
+            quién será la persona afortunada que te tocó.
+          </p>
+
+          <div class="code-input-wrap" id="codeInputWrap">
+            <div class="code-input-lock">🔑</div>
+
+            <input
+              id="personalCode"
+              class="code-input"
+              type="password"
+              autocomplete="off"
+              maxlength="30"
+              placeholder="TU CÓDIGO SECRETO"
+              aria-label="Código personal"
+            >
+
+            <button
+              type="button"
+              class="code-toggle"
+              id="toggleCode"
+              aria-label="Mostrar código"
+            >👁️</button>
+          </div>
+
+          <div class="code-error" id="codeError">
+            <span>😅</span>
+            <div>
+              <b>Ups... ese código no parece correcto.</b><br>
+              Revisa que lo hayas escrito bien e inténtalo otra vez.
+            </div>
+          </div>
+
+          <button type="button" class="code-submit" id="codeSubmit">
+            ✨ Abrir mi secreto ✨
+          </button>
+
+          <div class="code-security">
+            🔒 Tranquilo, tu secreto está protegido
+          </div>
         </div>
       </section>
 
-      <section class="step" id="step3">
+<section class="step" id="step3">
         <div class="reveal">
           <div class="secret-icon">✦</div>
           <div class="small">Tu amigo secreto es</div>
@@ -489,118 +887,282 @@ body{
     </div>
   </main>
 
-  <div class="footer">HECHO CON CARIÑO · PARA NUESTRA FAMILIA · 14 participantes</div>
+  <div class="footer">HECHO CON CARIÑO · PARA NUESTRA FAMILIA</div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-const PEOPLE = ['Lorena Medina', 'Alejandro', 'Andrés Lore', 'Andrés Vale', 'Diego', 'Flor', 'Josgua', 'Kevin', 'Marian', 'Mariangel', 'Mary', 'Natalia', 'Valen', 'Victor'];
+// ============================================================
+// AMIGO SECRETO — versión privada y de una sola participación
+// Participantes excluidos: Nala, Jacobo, Monchi, Lulu y Tom.
+// ============================================================
 
-let ASSIGNMENTS = {};
+const PEOPLE = [
+  "Lorena Medina", "Alejandro", "Andrés Lore", "Andrés Vale",
+  "Diego", "Flor", "Josgua", "Kevin", "Marian", "Mariangel",
+  "Mary", "Natalia", "Valen", "Victor"
+];
 
-function generateAssignments(){
-  const shuffled = [...PEOPLE];
-  // Fisher-Yates shuffle, retrying until nobody draws themselves.
-  for(let attempt = 0; attempt < 500; attempt++){
-    for(let i = shuffled.length - 1; i > 0; i--){
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    if(PEOPLE.every((name, i) => name !== shuffled[i])){
-      const result = {};
-      PEOPLE.forEach((name, i) => result[name] = shuffled[i]);
-      return result;
-    }
-  }
-  // Guaranteed derangement fallback: rotate the list.
-  const result = {};
-  PEOPLE.forEach((name, i) => result[name] = PEOPLE[(i + 1) % PEOPLE.length]);
-  return result;
-}
+// Nuevo sorteo entre los participantes restantes. Nadie se asigna a sí mismo.
+const ASSIGNMENTS = {
+  "Lorena Medina": "Mary",
+  "Alejandro": "Andrés Vale",
+  "Andrés Lore": "Mariangel",
+  "Andrés Vale": "Victor",
+  "Diego": "Kevin",
+  "Flor": "Valen",
+  "Josgua": "Natalia",
+  "Kevin": "Lorena Medina",
+  "Marian": "Andrés Lore",
+  "Mariangel": "Marian",
+  "Mary": "Josgua",
+  "Natalia": "Alejandro",
+  "Valen": "Flor",
+  "Victor": "Diego"
+};
 
-const ASSIGNMENTS_KEY = "familia_amigo_secreto_assignments_v2";
-ASSIGNMENTS = JSON.parse(localStorage.getItem(ASSIGNMENTS_KEY) || "null");
-if(!ASSIGNMENTS || Object.keys(ASSIGNMENTS).length !== PEOPLE.length ||
-   PEOPLE.some(name => !ASSIGNMENTS[name])){
-  ASSIGNMENTS = generateAssignments();
-  localStorage.setItem(ASSIGNMENTS_KEY, JSON.stringify(ASSIGNMENTS));
-}
+// IMPORTANTE:
+// Cada persona debe entrar con su código personal. El código no se guarda
+// como texto plano: solo se compara contra su hash SHA-256.
+// Los códigos reales se entregan por separado al organizador.
+const ACCESS_HASHES = {
+  "Lorena Medina": "__LORE_HASH__",
+  "Alejandro": "db6468813281d7adc8d65c0a594caf8f4061de8c44a968de9a87ad0fe522c8e6",
+  "Andrés Lore": "980884877e513eb40bd340006f5072edd0ae3233b6b435efe275e199010be33a",
+  "Andrés Vale": "016a73536c4ea9a29722845db538dd55f41c8d1b646d7dce64a09448bb1c62db",
+  "Diego": "44a4fde94bb8201804a21719a7fa7225eff9fe30e6e09b918611d1951265736e",
+  "Flor": "eec01bcb6fffc55588c43f776d536e1fcefcb9ab16046ea6049faa40679076e4",
+  "Josgua": "30ad55dba6c425205c94309778dccdee681099f7f8535e30f0b7722595d7da55",
+  "Kevin": "f93f9d6800cfb86234a8a3dfc55a07837d8415844fb874eba0f902ce39ca86a2",
+  "Marian": "176d3ad8bef9211607d15ab36cf53a75012adf6efce56a6946c9dcb347bdf687",
+  "Mariangel": "ac58422e7c7c76d8fbacbf748894e962257f0a01206639b7dfc61b25f95f9e22",
+  "Mary": "8e5f9536ffabd785fc758900e7a5522fb0a6f2ce281844e5acf19a5376edb27f",
+  "Natalia": "aa9395cd2564cceb8204fd707ee976dfd5bde42893079ebf3a0be4e75ad12568",
+  "Valen": "630bb900811611aeabbada320ca6054fc6ae80d2bf90bdc130f66cf9b99fe223",
+  "Victor": "023452049ce257c2db05ba33acdd3b3aa72f5b7a3c62738c81f85e9a76884658"
+};
 
-const USED_KEY = "familia_amigo_secreto_usados_v2";
-const CODE_KEY = "familia_amigo_secreto_codes_v2";
+const LOCK_KEY = "familia_amigo_secreto_lock_v3";
+const RESULT_KEY = "familia_amigo_secreto_result_v3";
 
 let selected = null;
-const used = JSON.parse(localStorage.getItem(USED_KEY) || "[]");
-const codes = JSON.parse(localStorage.getItem(CODE_KEY) || "{}");
+let authenticated = false;
 
 const namesEl = document.getElementById("names");
-const participantCount = document.getElementById("participantCount");
-participantCount.textContent = `${PEOPLE.length} participantes · todos reciben un regalo`;
+const continueBtn = document.getElementById("continue");
 
-PEOPLE.forEach(name => {
-  const button = document.createElement("button");
-  button.className = "nameBtn" + (used.includes(name) ? " used" : "");
-  button.textContent = name;
-  button.disabled = used.includes(name);
+// ------------------------------------------------------------
+// Estado de seguridad del navegador
+// ------------------------------------------------------------
+function getLock(){
+  try { return JSON.parse(localStorage.getItem(LOCK_KEY) || "null"); }
+  catch { return null; }
+}
 
-  button.onclick = () => {
-    selected = name;
-    document.querySelectorAll(".nameBtn").forEach(x => x.classList.remove("selected"));
-    button.classList.add("selected");
-    document.getElementById("continue").disabled = false;
-  };
+function saveLock(name){
+  localStorage.setItem(LOCK_KEY, JSON.stringify({
+    name,
+    lockedAt: Date.now()
+  }));
+}
 
-  namesEl.appendChild(button);
-});
+function getSavedResult(){
+  try { return JSON.parse(localStorage.getItem(RESULT_KEY) || "null"); }
+  catch { return null; }
+}
+
+function setLockedScreen(){
+  document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
+  const step1 = document.getElementById("step1");
+  if(step1) step1.classList.add("active");
+
+  const help = document.querySelector("#step1 .help");
+  if(help) help.textContent = "Este dispositivo ya tiene una participación registrada. No puedes seleccionar otro participante.";
+
+  namesEl.innerHTML = "";
+  const box = document.createElement("div");
+  box.className = "note";
+  box.innerHTML = "<span>🔒</span><div><b>Participación bloqueada.</b><br>Este dispositivo ya fue utilizado para un sorteo. Para evitar que alguien vea el resultado de otra persona, no se puede cambiar de participante.</div>";
+  namesEl.appendChild(box);
+  continueBtn.disabled = true;
+}
+
+const existingLock = getLock();
+const existingResult = getSavedResult();
+
+if(existingLock || existingResult){
+  setLockedScreen();
+} else {
+  PEOPLE.forEach(name => {
+    const button = document.createElement("button");
+    button.className = "nameBtn";
+    button.textContent = name;
+
+    button.onclick = () => {
+      selected = name;
+      authenticated = false;
+      document.querySelectorAll(".nameBtn").forEach(x => x.classList.remove("selected"));
+      button.classList.add("selected");
+      continueBtn.disabled = false;
+    };
+
+    namesEl.appendChild(button);
+  });
+}
 
 function go(n){
   document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
   document.getElementById("step" + n).classList.add("active");
 
-  document.getElementById("bar").style.width = (n * 33.333) + "%";
-  document.getElementById("stepLabel").textContent =
-    "Paso 0" + n + " / 03";
+  const bar = document.getElementById("bar");
+  if(bar) bar.style.width = (n * 33.333) + "%";
+
+  const label = document.getElementById("stepLabel");
+  if(label) label.textContent = "Paso 0" + n + " / 03";
 
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function makeCode(){
-  if(codes[selected]) return codes[selected];
-
-  let code;
-  do {
-    code = String(Math.floor(1000 + Math.random()*9000));
-  } while(Object.values(codes).includes(code));
-
-  codes[selected] = code;
-  localStorage.setItem(CODE_KEY, JSON.stringify(codes));
-  return code;
+async function sha256(value){
+  const data = new TextEncoder().encode(value);
+  const hash = await crypto.subtle.digest("SHA-256", data);
+  return [...new Uint8Array(hash)]
+    .map(b => b.toString(16).padStart(2,"0"))
+    .join("");
 }
 
-document.getElementById("continue").onclick = () => {
-  if(!selected) return;
+const codeSubmit = document.getElementById("codeSubmit");
+const personalCode = document.getElementById("personalCode");
+const toggleCode = document.getElementById("toggleCode");
+const codeError = document.getElementById("codeError");
+const codeInputWrap = document.getElementById("codeInputWrap");
+const codeLogin = document.getElementById("codeLogin");
 
-  if(used.includes(selected)){
-    showToast("Este nombre ya realizó el sorteo.");
-    return;
+function showCodeError(){
+  codeError.classList.add("show");
+  codeInputWrap.classList.remove("success");
+}
+
+function clearCodeError(){
+  codeError.classList.remove("show");
+}
+
+toggleCode.onclick = () => {
+  const showing = personalCode.type === "text";
+  personalCode.type = showing ? "password" : "text";
+  toggleCode.textContent = showing ? "👁️" : "🙈";
+};
+
+async function authenticate(){
+  if(!selected) return false;
+
+  const code = personalCode.value.trim();
+
+  clearCodeError();
+
+  if(!code){
+    codeError.innerHTML = `
+      <span>😅</span>
+      <div>
+        <b>Te falta el código.</b><br>
+        Escríbelo para abrir tu secreto.
+      </div>
+    `;
+    showCodeError();
+    personalCode.focus();
+    return false;
   }
 
-  document.getElementById("codebox").textContent = makeCode();
+  codeSubmit.disabled = true;
+  codeSubmit.textContent = "🪄 Comprobando...";
+
+  try{
+    const hash = await sha256(code);
+
+    if(hash !== ACCESS_HASHES[selected]){
+      codeError.innerHTML = `
+        <span>😅</span>
+        <div>
+          <b>Ups... ese código no parece correcto.</b><br>
+          Revisa que lo hayas escrito bien e inténtalo otra vez.
+        </div>
+      `;
+      showCodeError();
+      personalCode.focus();
+      personalCode.select();
+      codeSubmit.disabled = false;
+      codeSubmit.textContent = "✨ Abrir mi secreto ✨";
+      return false;
+    }
+
+    authenticated = true;
+    saveLock(selected);
+
+    codeInputWrap.classList.add("success");
+    codeLogin.classList.add("success");
+    codeSubmit.textContent = "🎉 ¡Código correcto!";
+
+    return true;
+
+  }catch(error){
+    codeError.innerHTML = `
+      <span>😵</span>
+      <div>
+        <b>Algo salió mal.</b><br>
+        Inténtalo nuevamente.
+      </div>
+    `;
+    showCodeError();
+    codeSubmit.disabled = false;
+    codeSubmit.textContent = "✨ Abrir mi secreto ✨";
+    return false;
+  }
+}
+
+continueBtn.onclick = () => {
+  if(!selected || getLock() || getSavedResult()) return;
+
   go(2);
+
+  setTimeout(() => {
+    personalCode.focus();
+  }, 400);
 };
 
-document.getElementById("reveal").onclick = () => {
-  if(!selected || used.includes(selected)) return;
+codeSubmit.onclick = async () => {
+  const ok = await authenticate();
+  if(!ok) return;
 
-  document.getElementById("person").textContent = ASSIGNMENTS[selected];
-  document.getElementById("stepLabel").textContent = "Tu resultado ✦";
-  used.push(selected);
-  localStorage.setItem(USED_KEY, JSON.stringify(used));
+  setTimeout(() => {
+    const result = ASSIGNMENTS[selected];
 
-  go(3);
-  confetti();
+    if(!result){
+      showToast("No se encontró tu asignación.");
+      return;
+    }
+
+    document.getElementById("person").textContent = result;
+
+    localStorage.setItem(RESULT_KEY, JSON.stringify({
+      name: selected,
+      revealed: true,
+      at: Date.now()
+    }));
+
+    go(3);
+    confetti();
+  }, 650);
 };
+
+personalCode.addEventListener("keydown", event => {
+  if(event.key === "Enter"){
+    event.preventDefault();
+    codeSubmit.click();
+  }
+});
+
+personalCode.addEventListener("input", clearCodeError);
 
 function showToast(message){
   const toast = document.getElementById("toast");
